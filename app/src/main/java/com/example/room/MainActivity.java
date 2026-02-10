@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -20,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     ArrayAdapter<Tokarka> arrayAdapter;
     List<Tokarka> tokarkiList;
+    EditText editTextNazwa;
+    EditText editTextModel;
+    EditText editTextSrednica;
+    EditText editTextMoc;
+
+    Button buttonDodaj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +54,25 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 maszynyDB.zwrocTokarkaDAO().usunTokarke(tokarkiList.get(i));
                 tokarkiList.remove(i);
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
+
+        editTextNazwa = findViewById(R.id.editTextNazwa);
+        editTextModel = findViewById(R.id.editTextModel);
+        editTextSrednica = findViewById(R.id.editTextSrednica);
+        editTextMoc = findViewById(R.id.editTextMoc);
+        buttonDodaj = findViewById(R.id.buttonDodaj);
+
+        buttonDodaj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nazwa = editTextNazwa.getText().toString();
+                String model = editTextModel.getText().toString();
+                int srednica = Integer.parseInt(editTextSrednica.getText().toString());
+                int moc = Integer.parseInt(editTextMoc.getText().toString());
+                maszynyDB.zwrocTokarkaDAO().wstawTokarke(new Tokarka(nazwa, model, srednica, moc));
+                tokarkiList.add(new Tokarka(nazwa, model, srednica, moc));
                 arrayAdapter.notifyDataSetChanged();
             }
         });

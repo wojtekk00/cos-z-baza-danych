@@ -19,4 +19,49 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextNazwa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Nazwa"/>
+
+        <EditText
+            android:id="@+id/editTextModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Model"/>
+
+        <EditText
+            android:id="@+id/editTextSrednica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Srednica"/>
+
+        <EditText
+            android:id="@+id/editTextMoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="Moc"/>
+
+        <Button
+            android:id="@+id/buttonDodaj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dodaj do bazy" />
+    </LinearLayout>
+
+
 </LinearLayout>
