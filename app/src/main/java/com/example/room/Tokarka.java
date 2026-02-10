@@ -1,10 +1,18 @@
 package com.example.room;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "tokareczki")
 public class Tokarka {
+    @PrimaryKey(autoGenerate = true)
     private int id;
     private String marka;
     private String model;
+    @ColumnInfo(name = "srednica_toczenia")
     private int srednicaToczenia;
+    @ColumnInfo(name = "moc_silnika")
     private int mocSilnika;
 
     public Tokarka(String marka, String model, int srednicaToczenia, int mocSilnika) {
