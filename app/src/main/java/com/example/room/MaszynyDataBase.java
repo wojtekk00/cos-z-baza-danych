@@ -10,7 +10,7 @@ import androidx.room.RoomDatabase;
 public abstract class MaszynyDataBase extends RoomDatabase {
     public abstract TokarkaDAO zwrocTokarkaDAO();
     private static MaszynyDataBase instancja;
-    private static MaszynyDataBase zwrocBazeDanych(Context context){
+    public static MaszynyDataBase zwrocBazeDanych(Context context){
         if (instancja == null){
             instancja = Room.databaseBuilder(
                     context.getApplicationContext(),

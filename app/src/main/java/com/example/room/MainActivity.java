@@ -10,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    MaszynyDataBase maszynyDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +22,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        maszynyDB = MaszynyDataBase.zwrocBazeDanych(MainActivity.this);
+        maszynyDB.zwrocTokarkaDAO().wstawTokarke(new Tokarka("Nova", "Nebula", 35, 1500));
+        maszynyDB.zwrocTokarkaDAO().wstawTokarke(new Tokarka("DRHSelmeister", "StratosXL", 55, 2000));
+
+
     }
 }
